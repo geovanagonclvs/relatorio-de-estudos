@@ -1,0 +1,8 @@
+# pastas
+# a barra / indiica que o git irá ignorar TUDO que estiver nas pastas
+venv/
+__pycache__/
+
+# arquivos
+logica.py
+relatorioEstudos.csv

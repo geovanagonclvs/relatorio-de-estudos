@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Relatório de Estudos</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='estilo.css')}}">
+    </head>
+
+    <body>
+
+
+
+        
+
+            <h1 id="titulo">Bem vindo ao site Relatório de Estudos!</h1>
+
+            <section id="um">
+            <form action="/enviar" method="POST">
+                
+                <p class="textos">Qual é o seu nome?</p> 
+                <input type="text" name="textname" id="textname" class="inputs"> 
+                
+                
+              
+                <p class="textos">
+                Qual foi a matéria? </p>
+                <input type="text" name="textmateria" id="textmateria" class="inputs">
+               
+
+                <p class="textos">               
+                Horas estudadas:</p> <input type="number" name="horas" id="horas" class="inputs">
+
+                <p class="textos">Quantas questões:</p>
+                 <input type="number" name="numberquestoes" id="numberquestoes" class="inputs">
+
+
+                <p class="textos">Quantas certas: </p> <input type="number" name="numbercertas" id="numbercertas"class="inputs">
+                
+
+                <p >
+                <button id="botaoEnviar" type="submit">Enviar</button>
+                </p>
+            </form>
+            </section>
+            <form action="/tabela" method="POST">
+<!-- 
+                {% if botao %}
+
+                <button id="botao" type="submit">Mostrar Dados</button>
+
+                {% endif%} -->
+                <br>
+                <button id="botaoMostrar" type="submit">Mostrar Dados</button>
+
+                {% if mostrar_tabela %}
+
+            <table>
+                <tr>
+                    <th>Matéria</th>
+                    <th>Questões</th>
+                    <th>Certas</th>
+                    <th>Horas</th>
+                    <th>Porcentagem</th>
+               </tr>
+
+                    {% for linha in apelido %}
+                    <tr>
+                        <td>{{ linha[1] }}</td>
+                        <td>{{ linha [2] }}</td>
+                        <td>{{ linha [3] }}</td>
+                        <td>{{ linha [4] }}</td>
+                        <td>{{ linha [5] }}</td>
+                    </tr>
+
+
+                    {% endfor %}
+
+                    {% endif %}
+            </table>
+            </form>
+
+        
+        
+    </body>
+</html>
