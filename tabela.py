@@ -7,7 +7,7 @@ def criar_tabela(conn):
 
     cursor = conn.cursor()
 
-    #IF NOT EXISTS
+    
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS  relatorio(
                    
@@ -23,6 +23,8 @@ def criar_tabela(conn):
 
 """
     )
+
+    
 
     
 
@@ -58,9 +60,7 @@ def pegarDados(conn, materia, questoes, questoesCertas, horas, porcentagem, arqu
     cursor = conn.cursor()
 
     cursor.execute("SELECT questoes, questoesCertas, horas, porcentagem FROM relatorio WHERE materia = ?", (materia,))
-    resultado = cursor.fetchone() #uma lista com dois valores
-
-    
+    resultado = cursor.fetchone() 
 
     if not resultado:
 
@@ -119,9 +119,6 @@ if __name__ =='__main__':
 
     #Chama a função passando a conexão
     criar_tabela(conn)
-
-    
-
 
     
     mostrar_relatorio(conn)

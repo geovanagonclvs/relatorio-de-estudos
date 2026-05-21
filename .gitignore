@@ -1,5 +1,5 @@
 # pastas
-# a barra / indiica que o git irá ignorar TUDO que estiver nas pastas
+# a barra / indica que o git irá ignorar TUDO que estiver nas pastas
 venv/
 __pycache__/
 

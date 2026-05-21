@@ -6,21 +6,11 @@ body{
 
 }
 .inputs{
-    /* width: 100%;
-    padding: 10px;
-    border: 1px solic #ccc;
-    border: 5px; */
-
+ 
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* display:flex; */
-    
-    /* align-items: flex-end */
-     
-    
-
 
 }
 
@@ -31,21 +21,10 @@ body{
     height: 30px;
     margin-top: 20px;
     
-   
-   
-    
-
-    
-
-   
-
 }
 
 #botaoMostrar{
-
     width: 70;
-
-   
 
 }
 
@@ -56,4 +35,8 @@ section#um{
     width: 500px;
     margin: auto;
     box-shadow: rgb(16, 15, 15);
+}
+
+#tabela{
+    margin: auto;
 }

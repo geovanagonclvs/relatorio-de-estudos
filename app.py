@@ -18,7 +18,7 @@ app = Flask(__name__)
 def home():
 
    
-    # passamos os dados para o HTML com um apelido "lista"
+    
     return render_template("index.html", mostrar_tabela=False)
 
 
@@ -55,8 +55,8 @@ def mostrar_table():
 
     dados = mostrar_relatorio(conn)
 
-    return render_template("index.html", mostrar_tabela =True,  apelido=dados )
 
+    return render_template("index.html", mostrar_tabela =True,  apelido=dados )
 
     
 #Com essa condição, o site só é executado se você rodar o app.py diretamente. 
