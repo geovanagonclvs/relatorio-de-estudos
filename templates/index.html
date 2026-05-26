@@ -14,7 +14,7 @@
             <h1 id="titulo">Bem vindo ao site Relatório de Estudos!</h1>
 
             <section id="um">
-            <form action="/enviar" method="POST">
+            <form action="/enviar" method="post">
                 
                 <p class="textos">Qual é o seu nome?</p> 
                 <input type="text" name="textname" id="textname" class="inputs"> 
@@ -41,7 +41,7 @@
                 </p>
             </form>
             </section>
-            <form action="/tabela" method="POST">
+            <form action="/tabela" method="post">
 <!-- 
                 {% if botao %}
 
@@ -80,6 +80,17 @@
             </form>
 
             </p>
+
+            <script>
+                //ficar de olho no evento de clique
+
+                botao = document.getElementById("botaoEnviar")
+
+                botao.addEventListener("submit", () => {
+
+                    
+                })
+            </script>
 
         
         

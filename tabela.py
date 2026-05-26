@@ -25,7 +25,7 @@ def criar_tabela(conn):
     )
 
     
-
+   
     
 
     

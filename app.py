@@ -1,9 +1,9 @@
 # do módulo flask, importamos os recursos do Flask
-from flask import Flask
-
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from tabela import mostrar_relatorio, pegarDados, condicoes
 from conexao.conexaoSQL import conectar
-from flask import render_template, request, redirect
+
+resposta = {"status": "sucesso"}
 
 # driação do site + o nome dele.
 
@@ -41,12 +41,16 @@ def enviar():
 
     pegarDados(conn, materia, int(questoes), int(questoesCertas), float(horas), float(porcentagem))
 
-    
-    
-    return render_template("index.html", mostrar_tabela=False)
+    mostrar_relatorio(conn)
+
+    dados = mostrar_relatorio(conn)
+
+    return jsonify(resposta)
+ 
+
+
 
 @app.route("/tabela", methods=["POST"])
-
 def mostrar_table():
 
     conn = conectar()
@@ -55,11 +59,11 @@ def mostrar_table():
 
     dados = mostrar_relatorio(conn)
 
-
-    return render_template("index.html", mostrar_tabela =True,  apelido=dados )
+  
+    return render_template("index.html", mostrar_tabela =True,  apelido=dados)
 
     
-#Com essa condição, o site só é executado se você rodar o app.py diretamente. 
+# Com essa condição, o site só é executado se você rodar o app.py diretamente. 
 # Se ele for importado pelo teste.py, o site não é exeutado.
 
 if __name__ == "__main__":
