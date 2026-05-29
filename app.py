@@ -19,7 +19,7 @@ def home():
 
    
     
-    return render_template("index.html", mostrar_tabela=False)
+    return render_template("login.html", mostrar_tabela=False)
 
 
 @app.route("/enviar", methods=['POST'])
