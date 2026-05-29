@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from tabela import mostrar_relatorio, pegarDados, condicoes
 from conexao.conexaoSQL import conectar
 
+
 resposta = {"status": "sucesso"}
 
 # driação do site + o nome dele.
@@ -19,7 +20,7 @@ def home():
 
    
     
-    return render_template("index.html", mostrar_tabela=False)
+    return render_template("login.html", mostrar_tabela=False)
 
 
 @app.route("/enviar", methods=['POST'])
@@ -28,7 +29,7 @@ def enviar():
 
     conn = conectar()
 
-   
+ 
 
     materia = request.form.get('textmateria')
     questoes = request.form.get('numberquestoes')
@@ -46,7 +47,8 @@ def enviar():
     dados = mostrar_relatorio(conn)
 
     return jsonify(resposta)
- 
+
+
 
 
 
