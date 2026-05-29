@@ -1,42 +1,88 @@
-body{
+
+h1{
+    position: absolute;
+    top: 10px;
     text-align: center;
-    background-color: rgb(127, 3, 143);
-    font: normal 13pt Arial;
-    color: rgb(28, 26, 26)
+    
+   
+    
+
+    
+    font-size: 35px; 
+
+    
+    
+
 
 }
-.inputs{
- 
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+body{
+
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background: linear-gradient(to right,#204fb5, #ca6ce6);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    font-family: "sans-serif"; color: #f4f0f0;
+
+   
+  
 
 }
 
+#caixa{
 
-#botaoEnviar{
+    
+    font-size: 23px;
+    
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* deixa a altura da borda com tamanha fixo */
+    height: 170px;
+    
 
-    width: 70px;
-    height: 30px;
-    margin-top: 20px;
+
+    background-color: #9863d8;
+    border-radius: 20px;
+    width: 400px;
+    padding-top: 20px;
+    margin-top: -200px;
+
+    padding-bottom: 150px;
+    margin-bottom: -270px;
+
+
+    
+    
+    
+
     
 }
 
-#botaoMostrar{
-    width: 70;
+input{
+    padding: 10px 15px;
+    width: 350px;
+    border-radius: 40px;
+    border: rgb(240, 232, 232);
 
 }
 
-section#um{
-    background: rgb(239, 234, 234);
-    border-radius: 10px;
-    padding: 30px;
-    width: 500px;
-    margin: auto;
-    box-shadow: rgb(16, 15, 15);
-}
+button{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: rgb(240, 232, 232);
 
-#tabela{
-    margin: auto;
+    margin-top: 30px;
+    background-color: #204fb5;
+    color:  #f4f0f0;
 }
