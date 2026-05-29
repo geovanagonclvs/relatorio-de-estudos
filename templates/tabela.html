@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form action="/tabela" method="post">
+<!-- 
+                {% if botao %}
+
+                <button id="botao" type="submit">Mostrar Dados</button>
+
+                {% endif%} -->
+                <br>
+                <button id="botaoMostrar" type="submit">Mostrar Dados</button>
+
+                {% if mostrar_tabela %}
+            
+            <p>
+            <table id ='tabela'>
+                <tr>
+                    <th>Matéria</th>
+                    <th>Questões</th>
+                    <th>Certas</th>
+                    <th>Horas</th>
+                    <th>Porcentagem</th>
+               </tr>
+
+                    {% for linha in apelido %}
+                    <tr>
+                        <td>{{ linha[1] }}</td>
+                        <td>{{ linha [2] }}</td>
+                        <td>{{ linha [3] }}</td>
+                        <td>{{ linha [4] }}</td>
+                        <td>{{ linha [5] }}</td>
+                    </tr>
+
+
+                    {% endfor %}
+
+                    {% endif %}
+            </table>
+            </form>
+    
+</body>
+</html>
