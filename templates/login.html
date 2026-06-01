@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+    </head>
+   
+
+
+
+
+    <body>
+
+       
+
+        
+            <h1 id="titulo">
+                Bem-vindo ao site Relatório de Estudos!</h1>
+
+            <div id="caixa">
+                <p>Digite o seu email:
+              
+                </p>
+                <input type="email" name="email" id="email">
+
+                <p>Senha:
+                
+                </p>
+                <input type="password" name="senha" id="senha">
+
+                </div>
+                  
+                <form action="/renderizarDados" method="post" >
+                <button type="submit">Enviar</button>
+                </form>
+                
+          
+
+        
+
+            
+
+            
+                
+    </body>
+</html>
