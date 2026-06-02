@@ -1,82 +1,58 @@
-h1 {
-    text-align: center;
-    color: rgb(233, 224, 224);
 
+h1{
+  
+    top: 10px;
     
+    
+    font-size: 35px; 
+
+
+
 }
 
 
-body{
-
-    
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;   
-    background: linear-gradient(to right, #204fb5, #c96be5);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 100vh;
-    
-
-    color: rgb(233, 224, 224);
-
-    font-family: "sans-serif"; color: #f4f0f0;
-
-   
-
-}
 
 #caixa{
 
-    margin-top: 40px;
+    
+    font-size: 23px;
+    
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* deixa a altura da borda com tamanha fixo */
+    height: 170px;
 
     background-color: #9863d8;
-    
-    width: 390px;
-    height: 340px;
-    font-size: 20px;    
+    border-radius: 20px;
+    width: 400px;
 
-    /*
-    border-color: purple;
-    box-shadow: 200px rgb(39, 38, 38);*/
-    border-radius: 15px;
-    border-color: purple;
+    /* padding-bottom empurra o elemento para baixo*/
+    /* */
+    padding-bottom: 150px;
+    margin-top: 40px;
 
-   
 
     
 }
+
 
 input{
-    width: 330px;
+    padding: 10px 15px;
+    width: 350px;
+    border-radius: 40px;
+    border: rgb(240, 232, 232);
 
-    /*pq que quando eu coloque o padding-bottom o texto dentro do input ficou em cima
-    e quando eu coloquei apenas o padding, o texto ficou de maneira normal?*/
-    padding: 12px 10px;
-    border-radius: 15px;
-
-    
-
-    /*  pq o border-color deixou as bordas com cores diferentes do input?
-    e pq apenas o border deixou as bordas da mesma cor que o input
-    */
-    border: white;
-
-    margin-bottom: 20px;
-    
-    
 }
 
-#botao{
+button{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: rgb(240, 232, 232);
 
-    margin-top: 2px;
-    padding: 10px;
-    border-radius: 15px;
-    border: white;
-    width: 80px;
+    margin-top: 30px;
     background-color: #204fb5;
-    color: rgb(233, 224, 224);
+    color:  #f4f0f0;
 }
-
