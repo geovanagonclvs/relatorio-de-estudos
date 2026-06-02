@@ -13,7 +13,7 @@ app = Flask(__name__)
 # define o endereço
 # "/" significa a página inicial.
 # se estivesse como "/relatorio", o texto só aparecia quando você digitasse localhost:5000/relatorio
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET"])
 
 #função responsável por dizer ao servidor o que fazer quando alguém visitar o endereço.
 def home():
@@ -55,17 +55,9 @@ def enviar():
 
     dados = mostrar_relatorio(conn)
 
-<<<<<<< Updated upstream
     return jsonify(resposta)
 
 
-=======
-
-
-    return render_template("dados.html")
-    # return jsonify(resposta)
- 
->>>>>>> Stashed changes
 
 
 

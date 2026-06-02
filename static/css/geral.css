@@ -1,78 +1,9 @@
+
 body{
-<<<<<<< Updated upstream:static/estilo.css
-=======
-
-    
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-
-    background: linear-gradient(to right,#204fb5, #ca6ce6);
+   
+    background: linear-gradient(to right, #204fb5, #c96be5);
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100vh;
 
-    font-family: "sans-serif"; color: #f4f0f0;
-
-   
-  
-
 }
-
-#caixa{
-
-    
-    font-size: 23px;
-    
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
->>>>>>> Stashed changes:static/css/geral.css
-    text-align: center;
-    background-color: rgb(127, 3, 143);
-    font: normal 13pt Arial;
-    color: rgb(28, 26, 26)
-
-}
-.inputs{
- 
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-}
-
-
-#botaoEnviar{
-
-    width: 70px;
-    height: 30px;
-    margin-top: 20px;
-    
-}
-
-#botaoMostrar{
-    width: 70;
-
-}
-
-<<<<<<< Updated upstream:static/estilo.css
-section#um{
-    background: rgb(239, 234, 234);
-    border-radius: 10px;
-    padding: 30px;
-    width: 500px;
-    margin: auto;
-    box-shadow: rgb(16, 15, 15);
-}
-
-#tabela{
-    margin: auto;
-}
-=======
->>>>>>> Stashed changes:static/css/geral.css
