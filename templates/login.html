@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
+        <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}"> -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
     </head>
    
@@ -11,12 +11,14 @@
     <body>
 
        
-        <fomr action="/enviar" method="get">
         
-            <h1 id="titulo">
+        
+        <h1 id="titulo">
                 Bem-vindo ao site Relatório de Estudos!</h1>
-
+            
             <div id="caixa">
+
+               
                 <p>Digite o seu email:
               
                 </p>
@@ -27,22 +29,12 @@
                 </p>
                 <input type="password" name="senha" id="senha">
 
-                </div>
+                <button id="botao" type="submit">Enviar</button>
 
-            
-        
-                  
+            </div>
+ 
                
-                <button type="submit">Enviar</button>
-                </form>
                 
-          
-
-        
-
-            
-
-            
-                
+                   
     </body>
 </html>
