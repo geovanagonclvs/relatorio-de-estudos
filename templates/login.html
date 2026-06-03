@@ -16,21 +16,30 @@
         <h1 id="titulo">
                 Bem-vindo ao site Relatório de Estudos!</h1>
             
+
             <div id="caixa">
 
-               
-                <p>Digite o seu email:
-              
-                </p>
-                <input type="email" name="email" id="email">
+                <!-- Se o usuário acessou o site, a requisição é do tipo get
+                Se ele enviou o emial e senha e cliclou no botao, a requisição e do tipo post -->
 
-                <p>Senha:
-                
-                </p>
-                <input type="password" name="senha" id="senha">
+                <form action ="/" method="post">
 
-                <button id="botao" type="submit">Enviar</button>
-
+                    
+                    
+                    <p>Digite o seu email:
+                        
+                        
+                    </p>
+                    <input type="email" name="email" id="email">
+                    
+                    <p>Senha:
+                        
+                    </p>
+                    <input type="password" name="senha" id="senha">
+                    
+                    <button id="botao" type="submit">Enviar</button>
+                    
+                </form>
             </div>
  
                

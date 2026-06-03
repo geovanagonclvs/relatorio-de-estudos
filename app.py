@@ -13,15 +13,22 @@ app = Flask(__name__)
 # define o endereço
 # "/" significa a página inicial.
 # se estivesse como "/relatorio", o texto só aparecia quando você digitasse localhost:5000/relatorio
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 
 #função responsável por dizer ao servidor o que fazer quando alguém visitar o endereço.
 def home():
 
+    if request.method == "POST":
+
+        email = request.form.get("email")
+        senha = request.form.get("senha")
+        print(email, senha)
+
+
+        
     
 
    
-    
     return render_template("login.html", mostrar_tabela=False)
 
 @app.route("/renderizarDados", methods=["POST"])
