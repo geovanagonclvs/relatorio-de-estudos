@@ -31,6 +31,17 @@ def home():
    
     return render_template("login.html", mostrar_tabela=False)
 
+
+@app.route("/criar_conta", methods = ["POST"])
+
+def criar_conta():
+
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+
+
+
+
 @app.route("/renderizarDados", methods=["POST"])
 
 def renderizarDados():

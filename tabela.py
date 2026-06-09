@@ -24,10 +24,12 @@ def criar_tabela(conn):
 """
     )
 
-    cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios
+    cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios(
+                   
                    id_usuarios INTEGER PRIMARY KEY AUTOINCREMENT,
-                   email TEXT,
-                   senha
+                   email TEXT UNIQUE,
+                   senha TEXT
+                   )
 
 
 
