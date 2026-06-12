@@ -32,7 +32,13 @@ def home():
     return render_template("login.html", mostrar_tabela=False)
 
 
-@app.route("/criar_conta", methods = ["POST"])
+@app.route("/enviarDados", methods=["POTS",])
+
+
+
+
+
+@app.route("/criar_conta", methods = ["POST", "GET"])
 
 def criar_conta():
 
@@ -40,14 +46,17 @@ def criar_conta():
     senha = request.form.get("senha")
 
 
-
-
-@app.route("/renderizarDados", methods=["POST"])
-
-def renderizarDados():
-
-
     return render_template("dados.html")
+
+
+
+
+# @app.route("/renderizarDados", methods=["POST"])
+
+# def renderizarDados():
+
+
+#     return render_template("dados.html")
 
 
 @app.route("/enviar", methods=['POST'])
