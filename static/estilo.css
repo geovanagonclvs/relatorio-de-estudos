@@ -1,7 +1,8 @@
 
 h1{
-    position: absolute;
+    position: absolute; 
     top: 10px;
+
     text-align: center;
     
     
@@ -49,7 +50,7 @@ body{
     /* deixa a altura da borda com tamanha fixo */
     height: 170px;
 
-    background-color: #9863d8;
+    background-color: #8552c3;
     border-radius: 20px;
     width: 400px;
 
