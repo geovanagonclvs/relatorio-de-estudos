@@ -1,7 +1,5 @@
 body{
 
-    
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +14,5 @@ body{
     font-family: "sans-serif"; color: #f4f0f0;
 
    
-  
 
 }

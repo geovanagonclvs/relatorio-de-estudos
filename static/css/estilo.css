@@ -13,7 +13,6 @@ h1{
 }
 
 
-
 body{
 
     
@@ -30,16 +29,13 @@ body{
     height: 100vh;
 
     font-family: "sans-serif"; color: #f4f0f0;
-
-   
-  
+ 
 
 }
 
 
 #caixa{
 
-    
     font-size: 23px;
     
     display: flex;
@@ -58,7 +54,6 @@ body{
     /* */
     padding-bottom: 150px;
     margin-top: 40px;
-
 
     
 }
