@@ -1,0 +1,7 @@
+página de login
+
+--> o usuário vai digitar o EMAIL e SENHA
+--> o HTML precisa verificar se os dados estão no padrão exigido. utilizar possivelmente o pattern.
+--> após verificados, a API vai pegar esses dados e enviar para o banco de dados salvar
+--> esses dados PRECISAM ser CRIPTOGRAFADOS
+--> após todas essas etapas, o usuário pode ir para a página de registro do seus estudos.

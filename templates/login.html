@@ -1,10 +1,11 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{url_for('static', filename='estilo.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
     </head>
 
     <body>
 
+        <form action ="/enviar" method="post">
             <h1 id="titulo">
                 Relatório de Estudos</h1>
 
@@ -12,7 +13,8 @@
                 <p>Digite o seu email:
 
                 </p>
-                <input type="email" name="email" id="email">
+
+                <input type="email" name="email" id="email" pattern="">
 
                 <p>Senha:
 
@@ -21,14 +23,10 @@
 <!-- 
                 <a href="Não tem uma conta? Clique aqui">Não tem uma conta?Clique aqui</a> -->
 
-                <button type="button">Enviar</button>
+                <button type="submit">Enviar</button>
             </div>
 
-
-
-
-
-
+    </form>
 
     </body>
 </html>
