@@ -2,17 +2,21 @@
     <head>
         <meta charset="utf-8">
         <title>Relatório de Estudos</title>
-
-        <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
-        
+        <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
     </head>
 
     <body>
 
-        
+
+
+            <h1 id="titulo">Bem vindo ao site Relatório de Estudos!</h1>
 
             <section id="um">
-            <form action="" method="get">
+            <form action="/" method="post">
+                
+                <p class="textos">Qual é o seu nome?</p> 
+                <input type="text" name="textname" id="textname" class="inputs"> 
+                
                 
               
                 <p class="textos">

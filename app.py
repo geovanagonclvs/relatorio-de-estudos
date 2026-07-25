@@ -6,7 +6,7 @@ from conexao.conexaoSQL import conectar
 
 resposta = {"status": "sucesso"}
 
-# driação do site + o nome dele.
+# criação do site + o nome dele.
 
 app = Flask(__name__)
 
@@ -18,17 +18,8 @@ app = Flask(__name__)
 #função responsável por dizer ao servidor o que fazer quando alguém visitar o endereço.
 def home():
 
-    if request.method == "POST":
-
-        email = request.form.get("email")
-        senha = request.form.get("senha")
-        print(email, senha)
-
-
-        
-    
-
    
+    
     return render_template("login.html", mostrar_tabela=False)
 
 
@@ -59,13 +50,13 @@ def criar_conta():
 #     return render_template("dados.html")
 
 
-@app.route("/enviar", methods=['POST'])
+@app.route("/enviar", methods=["POST"])
 
 def enviar():
 
     conn = conectar()
 
- 
+   
 
     materia = request.form.get('textmateria')
     questoes = request.form.get('numberquestoes')
@@ -83,8 +74,7 @@ def enviar():
     dados = mostrar_relatorio(conn)
 
     return jsonify(resposta)
-
-
+ 
 
 
 

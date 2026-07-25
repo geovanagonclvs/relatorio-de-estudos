@@ -1,65 +1,47 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/geral.css') }}"> 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-         
+        <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
     </head>
 
     <body>
 
+        <form action ="/enviar" method="post">
             <h1 id="titulo">
                 Relatório de Estudos</h1>
 
             <div id="caixa">
-                <p>Digite o seu email:
+                
+                
+                <label for="email">E-mail:</label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email"    
+                    required
+                    pattern="[a-z0-9]+{5,}@[a-z]+\.[a-z]+{2,}"
+                    tittle="Formato válido: usuario@email.com"
+                    >
+                    
+               
+                <label for="password">Senha:</label>
 
-                </p>
-                <input type="email" name="email" id="email">
+                    <input 
+                    type="password" 
+                    name="senha" 
+                    id="password"
+                    required
+                    pattern="[A-Za-z0-9@!]+{6,}"
+                    tittle="Senha muito pequena"
+                    >
+                    <!-- 
 
-                <p>Senha:
-
-                </p>
-                <input type="password" name="senha" id="senha">
-<!-- 
                 <a href="Não tem uma conta? Clique aqui">Não tem uma conta?Clique aqui</a> -->
 
-                <form action ="/" method="post">
-
-                    
-                    
-                    <p>Digite o seu email:
-                        
-                        
-                    </p>
-                    <input type="email" name="email" id="email">
-                    
-                    <p>Senha:</p>
-
-                    <input type="password" name="senha" id="senha">
-
-                    <form action ="/criar_conta">
-
-                        <a href="/criar_conta">Não tem uma conta?Clique aqui</a>
-                    </form>
-
-                    
-                    
-                    <button id="botao" type="submit">Enviar</button>
-                    
-                </form>
+                <button type="button" id="botao">Enviar</button>
             </div>
-<<<<<<< HEAD
- 
-               
-                
-                   
-=======
+         
 
-
-
-
-
-
+    </form>
 
 >>>>>>> estilizacao-login
     </body>
