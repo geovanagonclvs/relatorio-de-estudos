@@ -10,17 +10,31 @@
                 Relatório de Estudos</h1>
 
             <div id="caixa">
-                <p>Digite o seu email:
+                
+                
+                <label for="email">E-mail:</label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email"    
+                    required
+                    pattern="[a-z0-9]+{5,}@[a-z]+\.[a-z]+{2,}"
+                    tittle="Formato válido: usuario@email.com"
+                    >
+                    
+               
+                <label for="password">Senha:</label>
 
-                </p>
+                    <input 
+                    type="password" 
+                    name="senha" 
+                    id="password"
+                    required
+                    pattern="[A-Za-z0-9@!]+{6,}"
+                    tittle="Senha muito pequena"
+                    >
+                    <!-- 
 
-                <input type="email" name="email" id="email" pattern="">
-
-                <p>Senha:
-
-                </p>
-                <input type="password" name="senha" id="senha">
-<!-- 
                 <a href="Não tem uma conta? Clique aqui">Não tem uma conta?Clique aqui</a> -->
 
                 <button type="submit">Enviar</button>
