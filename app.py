@@ -17,8 +17,7 @@ app = Flask(__name__)
 #função responsável por dizer ao servidor o que fazer quando alguém visitar o endereço.
 def home():
 
-   
-    
+
     return render_template("login.html", mostrar_tabela=False)
 
 
@@ -45,8 +44,6 @@ def enviar():
 
     return render_template("index.html", mostrar_relatorio=False)
  
-
-
 
 @app.route("/tabela", methods=["POST"])
 def mostrar_table():
