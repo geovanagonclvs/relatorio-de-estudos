@@ -27,8 +27,8 @@ def criar_tabela(conn):
     cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios(
                    
                    id_usuarios INTEGER PRIMARY KEY AUTOINCREMENT,
-                   email TEXT UNIQUE,
-                   senha TEXT
+                   email TEXT UNIQUE NOT NULL,
+                   senha TEXT NOT NULL
                    )
 
 

@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from tabela import mostrar_relatorio, pegarDados, condicoes
 from conexao.conexaoSQL import conectar
+import re
 
 
 resposta = {"status": "sucesso"}
@@ -13,23 +14,15 @@ app = Flask(__name__)
 # define o endereço
 # "/" significa a página inicial.
 # se estivesse como "/relatorio", o texto só aparecia quando você digitasse localhost:5000/relatorio
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 
 #função responsável por dizer ao servidor o que fazer quando alguém visitar o endereço.
 def home():
-
-   
     
     return render_template("login.html", mostrar_tabela=False)
 
 
-@app.route("/enviarDados", methods=["POTS",])
-
-
-
-
-
-@app.route("/criar_conta", methods = ["POST", "GET"])
+@app.route("/criar_conta", methods = ["POST"])
 
 def criar_conta():
 
@@ -37,9 +30,18 @@ def criar_conta():
     senha = request.form.get("senha")
 
 
-    return render_template("dados.html")
+    validacao_email = re.match("[a-zA-Z0-9]{5,}@[a-z]{5,}\.[a-z]{2,}", email)
+    validacao_senha = re.match("[A-Za-z0-9@!]{6,}", senha)
 
+    if validacao_email == True:
+       render_template ("dados.html")
+    else:
+        return render_template ("dados.html")
 
+    if validacao_senha == True:
+        render_template ("dados.html")
+    else:
+        return render_template ("dados.html")
 
 
 # @app.route("/renderizarDados", methods=["POST"])
@@ -88,7 +90,7 @@ def mostrar_table():
     dados = mostrar_relatorio(conn)
 
   
-    return render_template("index.html", mostrar_tabela =True,  apelido=dados)
+    return 
 
     
 # Com essa condição, o site só é executado se você rodar o app.py diretamente. 
