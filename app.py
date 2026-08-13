@@ -1,8 +1,10 @@
 # do módulo flask, importamos os recursos do Flask
-from flask import Flask, render_template, request, redirect, url_for, jsonify
-from tabela import mostrar_relatorio, pegarDados, condicoes
+import sqlite3
+from flask import Flask, render_template, request, redirect, url_for, jsonify, g
+from tabela import  pegarDados, condicoes, salvar_conta
 from conexao.conexaoSQL import conectar
 import re
+import bcrypt
 
 
 resposta = {"status": "sucesso"}
@@ -10,6 +12,8 @@ resposta = {"status": "sucesso"}
 # criação do site + o nome dele.
 
 app = Flask(__name__)
+
+DATABASE = 'relatorio.db'
 
 # define o endereço
 # "/" significa a página inicial.
@@ -22,37 +26,79 @@ def home():
     return render_template("login.html", mostrar_tabela=False)
 
 
+
+@app.route("/verificar", methods=["POST"])
+
+def verificar_conta():
+
+    conn = conectar()
+    
+    email = request.form.get("nemail")
+    senha = request.form.get("nsenha")
+    
+    email_existir = salvar_conta(conn, email, senha)
+
+
+    if email_existir[2] == "naoexiste":
+
+        # criar_conta(json)
+
+        return criar_conta(), render_template("login.html")
+
+    elif email_existir[2] == "existe":
+        
+        return render_template("dados.html")
+
+
 @app.route("/criar_conta", methods = ["POST"])
 
 def criar_conta():
 
-    email = request.form.get("email")
-    senha = request.form.get("senha")
+    conn = conectar()
 
+    email = request.form.get("nemail")
+    senha = request.form.get("nsenha")
 
-    validacao_email = re.match("[a-zA-Z0-9]{5,}@[a-z]{5,}\.[a-z]{2,}", email)
-    validacao_senha = re.match("[A-Za-z0-9@!]{6,}", senha)
+    pattern_email = r'^[a-zA-Z0-9]{4,}@[a-z]{5,}\.[a-z]{3,}$'
+    pattern_senha = r'^[A-Za-z0-9@!]{6,}'
 
-    if validacao_email == True:
+    resultado_email = re.match(pattern_email, email)
+
+    resultado_senha = re.match(pattern_senha, senha)
+
+    if resultado_email != None:
        render_template ("dados.html")
     else:
-        return render_template ("dados.html")
+       return "email inválido"
 
-    if validacao_senha == True:
+    if resultado_senha != None:
         render_template ("dados.html")
     else:
-        return render_template ("dados.html")
+        return "senha muito pequena"
+    
+    email_minusculo = email.lower()
+
+    # transforma a string em um array de bytes
+    senha_bytes = senha.encode('utf-8')
+
+    # parêmetro rounds controla o custo computacional (padrão costumar ser 12)
+    salt = bcrypt.gensalt(rounds=12)
+
+    #recebe a senha e o salt, devolve o hash
+    hashed = bcrypt.hashpw(senha_bytes, salt)
+
+    # #compara uma senha em texto com um hash já existente
+    # bcrypt.checkpw(senha, hash_salt)
+
+    # retorna uma string em bytes contendo o hash seguro da senha combinado com o salt gerado.
+    # hash_bytes = bcrypt.hashpw(hash_salt)
+
+    return salvar_conta(conn, email_minusculo, hashed)
 
 
-# @app.route("/renderizarDados", methods=["POST"])
-
-# def renderizarDados():
-
-
-#     return render_template("dados.html")
-
-
+    
 @app.route("/enviar", methods=["POST"])
+
 
 def enviar():
 
@@ -71,26 +117,24 @@ def enviar():
 
     pegarDados(conn, materia, int(questoes), int(questoesCertas), float(horas), float(porcentagem))
 
-    mostrar_relatorio(conn)
+    # mostrar_relatorio(conn)
 
-    dados = mostrar_relatorio(conn)
+    # dados = mostrar_relatorio(conn)
 
     return jsonify(resposta)
  
 
+# @app.route("/tabela", methods=["POST"])
+# def mostrar_table():
 
+#     conn = conectar()
 
-@app.route("/tabela", methods=["POST"])
-def mostrar_table():
+#     mostrar_relatorio(conn)
 
-    conn = conectar()
-
-    mostrar_relatorio(conn)
-
-    dados = mostrar_relatorio(conn)
+#     dados = mostrar_relatorio(conn)
 
   
-    return 
+
 
     
 # Com essa condição, o site só é executado se você rodar o app.py diretamente. 

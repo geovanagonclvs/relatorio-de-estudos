@@ -1,6 +1,6 @@
 # pastas
 # a barra / indica que o git irá ignorar TUDO que estiver nas pastas
-venv/
+.venv/
 __pycache__/
 
 # arquivos

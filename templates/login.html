@@ -1,11 +1,12 @@
 <html>
     <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
     </head>
 
     <body>
 
-        <form action ="/criar_conta" method="post">
+        <form action ="/verificar" method="post">
             <h1 id="titulo">
                 Relatório de Estudos</h1>
 
@@ -15,10 +16,10 @@
                 <label for="email">E-mail:</label>
                     <input 
                     type="email" 
-                    name="email" 
+                    name="nemail" 
                     id="email"    
                     required
-                    pattern="[a-zA-Z0-9]+{5,}@[a-z]+\.[a-z]+{2,}"
+                    pattern="[a-zA-Z0-9]{4,}@[a-z]{5,}\.[a-z]{3,}"
                     tittle="Formato válido: usuario@email.com"
                     >
                     
@@ -27,10 +28,10 @@
 
                     <input 
                     type="password" 
-                    name="senha" 
+                    name="nsenha" 
                     id="password"
                     required
-                    pattern="[A-Za-z0-9@!]+{6,}"
+                    pattern="[A-Za-z0-9@!]{6,}"
                     tittle="Senha muito pequena"
                     >
                     <!-- 

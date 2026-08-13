@@ -1,6 +1,7 @@
 from conexao.conexaoSQL import conectar
 
 
+
 def criar_tabela(conn):
 
     
@@ -26,24 +27,46 @@ def criar_tabela(conn):
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios(
                    
-                   id_usuarios INTEGER PRIMARY KEY AUTOINCREMENT,
-                   email TEXT UNIQUE NOT NULL,
-                   senha TEXT NOT NULL
-                   )
+                    id_usuarios INTEGER PRIMARY KEY AUTOINCREMENT,
+                    email TEXT UNIQUE NOT NULL,
+                    senha TEXT NOT NULL    
+                                                
+                    )
 
+ """)
 
-
-
-""")
-
-    
-   
-    
-
-    
+  
     conn.commit()
-    
-    
+
+
+def salvar_conta(conn, email, senha):
+
+    cursor = conn.cursor()
+
+    # cursor.execute("SELECT email, senha FROM usuarios WHERE email = ?", (email,))
+
+    cursor.execute("SELECT email FROM usuarios WHERE email = ?", (email,))
+
+    email_existir = cursor.fetchone()
+
+   #se o email NÃO for igual ao do encontrado no fetchone
+    if email_existir == None : 
+
+          conta = (email, senha)
+          sql = "INSERT INTO usuarios (email, senha) VALUES (?, ?)"
+          cursor.execute(sql, conta)
+          conn.commit()
+
+          email_existir = "naoexiste"
+          return email, senha, email_existir
+
+    #se for igual, então:
+    else:
+
+        email_existir = "existe"
+        return email, senha, email_existir 
+               
+        #preciso enviar uma mensagem
 
 def condicoes(questoes, questoesCertas):
 
@@ -104,12 +127,7 @@ def pegarDados(conn, materia, questoes, questoesCertas, horas, porcentagem, arqu
         cursor.execute(sql_2, dados_atualizados)
         conn.commit()
 
-
-
-     
                 
-
-   
 def mostrar_relatorio(conn):
     
 
@@ -121,10 +139,8 @@ def mostrar_relatorio(conn):
     return dados # retorna os dados
 
 
-    
 
 if __name__ =='__main__':
-
 
     #Abre a conexão
     conn = conectar()
@@ -132,9 +148,10 @@ if __name__ =='__main__':
     #Chama a função passando a conexão
     criar_tabela(conn)
 
-    
     mostrar_relatorio(conn)
 
-
+    #fecha a conexão
     conn.close()
+
+    
 
