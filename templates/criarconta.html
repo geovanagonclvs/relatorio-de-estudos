@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
+        
+</head>
+<body>
+    
+    <form action="/criar_conta" method="post">
+
+        <p>Email</p>
+        <input type="email" name="nemail" id="senha">
+        
+        <p>Senha</p>
+        <input type="password" name="nsenha" id="senha">
+        
+       <button type="submit">Criar</button>
+    </form>
+    </body>
+</html>

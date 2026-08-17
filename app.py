@@ -1,7 +1,7 @@
 # do módulo flask, importamos os recursos do Flask
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, jsonify, g
-from tabela import  pegarDados, condicoes, salvar_conta
+from tabela import  pegarDados, condicoes, salvar_conta, consultar_conta
 from conexao.conexaoSQL import conectar
 import re
 import bcrypt
@@ -26,7 +26,6 @@ def home():
     return render_template("login.html", mostrar_tabela=False)
 
 
-
 @app.route("/verificar", methods=["POST"])
 
 def verificar_conta():
@@ -35,46 +34,56 @@ def verificar_conta():
     
     email = request.form.get("nemail")
     senha = request.form.get("nsenha")
-    
-    email_existir = salvar_conta(conn, email, senha)
 
+    resultado = consultar_conta(conn, email, senha)
 
-    if email_existir[2] == "naoexiste":
+    if resultado == True:
 
-        # criar_conta(json)
-
-        return criar_conta(), render_template("login.html")
-
-    elif email_existir[2] == "existe":
-        
         return render_template("dados.html")
 
+    else:
 
-@app.route("/criar_conta", methods = ["POST"])
+        return render_template("login.html", resultado=resultado)
+    
+
+@app.route("/validar_pattern", methods=["GET"])
+
+def validar_pattern():
+
+    conn = conectar()
+    
+    email = request.form.get("nemail")
+    senha = request.form.get("nsenha")
+    
+    pattern_email = r'^[a-zA-Z0-9]{4,}@[a-z]{5,}\.[a-z]{3,}$'
+    pattern_senha = r'^[A-Za-z0-9@!]{6,}'
+    
+    resultado_email = re.match(pattern_email, email)
+    
+    resultado_senha = re.match(pattern_senha, senha)
+    
+    if resultado_email != None and resultado_senha != None:
+
+        return redirect("/renderizar_pagina")
+
+    
+@app.route("/renderizar_pagina", methods=["GET"])
+
+def renderizar_pagina():
+
+    return render_template("criarconta.html")
+    
+
+@app.route("/criar_conta", methods = ["GET", "POST"])
 
 def criar_conta():
 
-    conn = conectar()
+    render_template("criarconta.html")
 
+    conn = conectar()
+        
     email = request.form.get("nemail")
     senha = request.form.get("nsenha")
-
-    pattern_email = r'^[a-zA-Z0-9]{4,}@[a-z]{5,}\.[a-z]{3,}$'
-    pattern_senha = r'^[A-Za-z0-9@!]{6,}'
-
-    resultado_email = re.match(pattern_email, email)
-
-    resultado_senha = re.match(pattern_senha, senha)
-
-    if resultado_email != None:
-       render_template ("dados.html")
-    else:
-       return "email inválido"
-
-    if resultado_senha != None:
-        render_template ("dados.html")
-    else:
-        return "senha muito pequena"
     
     email_minusculo = email.lower()
 
@@ -93,12 +102,10 @@ def criar_conta():
     # retorna uma string em bytes contendo o hash seguro da senha combinado com o salt gerado.
     # hash_bytes = bcrypt.hashpw(hash_salt)
 
-    return salvar_conta(conn, email_minusculo, hashed)
-
+    return salvar_conta(conn, email_minusculo, hashed), render_template("dados.html")
 
     
 @app.route("/enviar", methods=["POST"])
-
 
 def enviar():
 
@@ -117,26 +124,13 @@ def enviar():
 
     pegarDados(conn, materia, int(questoes), int(questoesCertas), float(horas), float(porcentagem))
 
-    # mostrar_relatorio(conn)
+    return render_template("mostrar.html")
 
-    # dados = mostrar_relatorio(conn)
 
-    return jsonify(resposta)
- 
+def mostrar_relatorio():
 
-# @app.route("/tabela", methods=["POST"])
-# def mostrar_table():
-
-#     conn = conectar()
-
-#     mostrar_relatorio(conn)
-
-#     dados = mostrar_relatorio(conn)
-
+    ...
   
-
-
-    
 # Com essa condição, o site só é executado se você rodar o app.py diretamente. 
 # Se ele for importado pelo teste.py, o site não é exeutado.
 

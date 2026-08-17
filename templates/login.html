@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="{{url_for('static', filename='css/geral.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
+        
     </head>
 
     <body>
@@ -34,16 +35,23 @@
                     pattern="[A-Za-z0-9@!]{6,}"
                     tittle="Senha muito pequena"
                     >
-                    <!-- 
 
-                <a href="Não tem uma conta? Clique aqui">Não tem uma conta?Clique aqui</a> -->
 
+                <a href="/renderizar_pagina">Não tem uma conta?Clique</a> 
+
+                {%if resultado == False %}
+
+                 <div >Email ou senha incorretos</div>
+
+                {% endif %}
                 <button type="submit" id="botao">Enviar</button>
             </div>
          
 
+
     </form>
 
+   
 
     </body>
 </html>

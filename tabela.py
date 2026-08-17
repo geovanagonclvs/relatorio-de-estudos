@@ -1,5 +1,5 @@
 from conexao.conexaoSQL import conectar
-
+import bcrypt
 
 
 def criar_tabela(conn):
@@ -35,6 +35,7 @@ def criar_tabela(conn):
 
  """)
 
+    
   
     conn.commit()
 
@@ -52,21 +53,48 @@ def salvar_conta(conn, email, senha):
    #se o email NÃO for igual ao do encontrado no fetchone
     if email_existir == None : 
 
-          conta = (email, senha)
-          sql = "INSERT INTO usuarios (email, senha) VALUES (?, ?)"
-          cursor.execute(sql, conta)
-          conn.commit()
+        conta = (email, senha)
+        sql = "INSERT INTO usuarios (email, senha) VALUES (?, ?)"
+        cursor.execute(sql, conta)
+        conn.commit()
 
-          email_existir = "naoexiste"
-          return email, senha, email_existir
+        erro = "False"
+   
+        return erro
 
     #se for igual, então:
     else:
 
-        email_existir = "existe"
-        return email, senha, email_existir 
+        erro = "True"
+        return erro
                
         #preciso enviar uma mensagem
+
+
+def consultar_conta(conn, email, senha):
+
+    cursor = conn.cursor()
+
+    # buscar o usuário pelo email. o Whre serve para filtrar o email que é indêntico ao que o usuário digitou.
+    cursor.execute("SELECT senha FROM usuarios WHERE email = ?", (email, ))
+
+    resultado = cursor.fetchone()
+
+    if resultado != None:
+
+        senha_bytes = senha.encode('utf-8')
+
+
+        resultado_senha = bcrypt.checkpw(senha_bytes, resultado[0])
+
+        return resultado_senha
+
+    else:
+
+        resultado = False
+        return resultado
+
+      
 
 def condicoes(questoes, questoesCertas):
 
