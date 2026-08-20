@@ -1,8 +1,9 @@
-# pastas
-# a barra / indica que o git irá ignorar TUDO que estiver nas pastas
-.venv/
-__pycache__/
-
-# arquivos
+.venv\
+__pycache__\
+.vscode\
 logica.py
+ideias.txt
+logica.txt
 relatorioEstudos.csv
+
+
