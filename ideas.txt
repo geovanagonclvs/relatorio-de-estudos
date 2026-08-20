@@ -1,6 +1,0 @@
---> tirar o body do arquivo login.css e deixar apenas no geral.css
-
---> inserir o link abaixo da caixa de loging para criar a conta
-
-
-
