@@ -1,9 +1,7 @@
-.venv\
-__pycache__\
-.vscode\
-logica.py
-ideias.txt
-logica.txt
+__pycache__/
+.venv/
+.vscode/
+relatorio.db
 relatorioEstudos.csv
-
-
+logica.txt
+ideias.txt
