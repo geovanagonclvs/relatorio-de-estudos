@@ -1,7 +1,7 @@
 # do módulo flask, importamos os recursos do Flask
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, jsonify, g
-from conexao.consultas_tabela import  pegarDados, condicoes, salvar_conta, consultar_conta
+from tabela.tabelas import  pegarDados, condicoes, salvar_conta, consultar_conta
 from conexao.conexaoSQL import conectar
 import re
 import bcrypt
