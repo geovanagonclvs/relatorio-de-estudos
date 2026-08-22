@@ -58,9 +58,6 @@ def salvar_conta(conn, email, senha):
         cursor.execute(sql, conta)
         conn.commit()
 
-        erro = "False"
-   
-        return erro
 
     #se for igual, então:
     else:

@@ -44,6 +44,9 @@ def verificar_conta():
     else:
 
         return render_template("login.html", resultado=resultado)
+
+
+    
     
 
 @app.route("/validar_pattern", methods=["GET"])
@@ -101,8 +104,15 @@ def criar_conta():
 
     # retorna uma string em bytes contendo o hash seguro da senha combinado com o salt gerado.
     # hash_bytes = bcrypt.hashpw(hash_salt)
+    
+    erro = salvar_conta(conn, email_minusculo, hashed)
 
-    return salvar_conta(conn, email_minusculo, hashed), render_template("dados.html")
+    if erro == "True":
+
+        return render_template("criarconta.html", erro=erro)
+
+    else:
+        return salvar_conta(conn, email_minusculo, hashed), render_template("registrar.html")
 
     
 @app.route("/enviar", methods=["POST"])

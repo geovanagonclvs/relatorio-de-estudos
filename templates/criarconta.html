@@ -18,7 +18,15 @@
         <p>Senha</p>
         <input type="password" name="nsenha" id="senha">
         
-       <button type="submit">Criar</button>
+        {%if erro == "True" %}
+        <div>Email ou senha incorretos</div>
+
+        {% endif %}
+
+        
+        <a href="/verificar">Voltar para a página inicial.</a> 
+
+       <button type="submit">Criar</button><br>
     </form>
     </body>
 </html>
